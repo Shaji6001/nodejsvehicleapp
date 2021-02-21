@@ -11,12 +11,14 @@ apps.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.connect("mongodb+srv://shaji:ponnu123@cluster1.u2cuq.mongodb.net/vehicledb?retryWrites=true&w=majority",{useUnifiedTopology: true},{ useNewUrlParser: true })
 
+
 apps.post("/add",async (req,res)=>{
     try
     {
-     var data= req.body;
-     var vehicleData= new vehicleData(req.body);
-     var result = await vehicleData.save();
+        var data= req.body;
+        var data= new vehicleModel(req.body);
+     //var data= new vehicleData(req.body);
+     var result = await data.save();
      res.json(result);
      
     }
@@ -28,7 +30,7 @@ apps.post("/add",async (req,res)=>{
 
 
 
-apps.get('/create', async(req,res)=>{
+apps.post('/vehiclecreate', async(req,res)=>{
     try
     {
         var data= req.body;
