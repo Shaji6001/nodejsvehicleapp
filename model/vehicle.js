@@ -13,6 +13,6 @@ var vehicleSchema= new mongoose.Schema(
     dealerPhoneno:{type:String}
 }
 );
-var vehicleModel= new mongoose.model("vehicles",vehicleSchema);
+var vehicleModel= mongoose.model("vehicles",vehicleSchema);
 
 module.exports ={vehicleModel}
