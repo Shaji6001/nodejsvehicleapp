@@ -9,23 +9,23 @@ apps.use(bodyParser.json());
 apps.use(bodyParser.urlencoded({extended: true}));
 
 
-mongoose.connect("mongodb+srv://shaji:ponnu123@cluster1.u2cuq.mongodb.net/vehicledb?retryWrites=true&w=majority",{useUnifiedTopology: true},{useNewUrlParser: true})
+mongoose.connect("mongodb+srv://shaji:ponnu123@cluster1.u2cuq.mongodb.net/vehicledb?retryWrites=true&w=majority",{useNewUrlParser: true})
 
 
-apps.post("/addvehicle",async (req,res)=>{
+apps.post('/addvehicle', async (req,res)=>{
     try
     {
         var data= req.body;
-        console.log(data);
+        console.log(data)
         var data= new vehicleModel(req.body);
-        
-     var result = await data.save();
-     res.json(result);
-     
+        var result= await data.save();
+        res.json(result);
+
     }
-    catch(error){res.status(500).send(error)};
-    
-    })
+    catch(error){
+        res.status(500).send(error)
+    }
+})
 
 
 
