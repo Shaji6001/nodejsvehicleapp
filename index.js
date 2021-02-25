@@ -16,9 +16,10 @@ apps.post('/addvehicle', async (req,res)=>{
     try
     {
         var data= req.body;
-        console.log(data)
+        
         var data= new vehicleModel(req.body);
         var result= await data.save();
+        console.log(result);
         res.json(result);
 
     }
@@ -33,7 +34,7 @@ apps.post('/addvehicle', async (req,res)=>{
 apps.get('/createvehicle', async(req,res)=>{
     try
     {
-        //var data= req.body;
+        var data= req.body;
         var data= new vehicleModel(req.body);
     
         var result = await data.save();
